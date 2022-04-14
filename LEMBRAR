@@ -1,0 +1,4 @@
+
+( cd qemu/qemu-git; \
+        ./configure-small --extra-cflags=-DX49GP; \
+        make -f Makefile-small )

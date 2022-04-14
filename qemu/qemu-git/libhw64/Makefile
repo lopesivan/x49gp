@@ -1,0 +1,1 @@
+/home/ivan/developer/hp50g/x49gp/qemu/qemu-git/Makefile-small.hw
