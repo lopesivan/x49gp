@@ -7,3 +7,6 @@
 )
 
 make
+
+chmod +x newconfig
+chmod +x mount-sdcard.sh umount-sdcard.sh
