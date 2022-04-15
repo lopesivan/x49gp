@@ -1,3 +1,9 @@
+Additional note: August 14, 2022
+
+Updated this so that it'll compile on Ubuntu 18.04.
+
+--Ivan Lopes
+
 Additional note: August 22, 2013
 
 Updated this so that it'll compile on Ubuntu 12.04.
