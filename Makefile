@@ -1,6 +1,5 @@
 # $Id: Makefile,v 1.29 2008/12/11 12:18:17 ecd Exp $
 #
-
 X49GP_DEBUG = \
 	-DDEBUG_X49GP_MODULES \
 	-DDEBUG_S3C2410_SRAM \
@@ -110,8 +109,13 @@ LDLIBS = $(X49GP_LIBS) $(GDB_LIBS) $(COCOA_LIBS)
 
 MAKEDEPEND = $(CC) -MM
 
-CFLAGS += $(shell pkg-config --cflags gtk+-2.0)
-LDFLAGS += $(shell pkg-config --libs gtk+-2.0)
+PKG_CONFIG:= /usr/bin/pkg-config
+PKG_CONFIG_PATH:=/usr/lib/x86_64-linux-gnu/pkgconfig
+
+export PKG_CONFIG_PATH
+
+CFLAGS += $(shell "$(PKG_CONFIG)" --cflags gtk+-2.0)
+LDFLAGS += $(shell "$(PKG_CONFIG)" --libs gtk+-2.0)
 
 ifdef QEMU_OLD
 export MAKE MAKEDEPEND CC LD AR RANLIB CFLAGS LDFLAGS
@@ -320,6 +324,9 @@ depend: depend-libs
 	$(MAKEDEPEND) $(CFLAGS) $(SRCS) >.depend
 endif
 
+## ---------------------------------------------------------------------------
+build:
+	bash ./compila.sh
 up:
 	./x49gp config
 reset:
